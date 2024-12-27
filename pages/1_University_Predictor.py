@@ -15,37 +15,14 @@ def predict_admission(gre_score, toefl_score, university_rating, sop, lor, cgpa,
         'Research': [research]
     })
     
-    # Load the saved model
-    pipeline = joblib.load('admission_predictor_model.pkl')
+    # Load the saved model - Updated path
+    pipeline = joblib.load('data/admission_predictor_model.pkl')
     
     # Make the prediction
     prediction = pipeline.predict(user_input)
     prediction = prediction[0][0]  
     
     return prediction
-
-# Streamlit app
-st.set_page_config(
-    page_title="University Admission Predictor",
-    page_icon="🎓",
-    layout="centered"
-)
-
-# Sidebar header with navigation
-st.sidebar.title("Welcome to Manyue's Portfolio!")
-st.sidebar.write("""
-This is a space where I showcase the projects that have shaped my journey in Data Science and Machine Learning. Each mini-project represents my dedication to mastering algorithms by solving real-world problems. These projects are stepping stones that have strengthened my skills, and they highlight my ability to use ML alogirthms.
-
-Excited about the future? So am I! I am also working on major projects that delve into innovative solutions, and the links to these will be available soon.
-
-If you're a recruiter or a collaborator, feel free to explore my work and see how I can contribute to your team. My passion lies in leveraging AI/ML to solve real-world challenges in sectors like retail, hospitality, and beyond.
-
-💼 Ready to discuss opportunities?
-Let’s connect on [LinkedIn](https://www.linkedin.com/in/manyue-javvadi-datascientist/) and start a conversation about how we can build something extraordinary together.
-
-""")
-
-
 # Main title
 st.title('🎓 University Admission Predictor')
 st.write("""
@@ -70,7 +47,6 @@ with col2:
 research = st.selectbox('Research Experience (0 or 1)', [0, 1], help="Select 1 if you have research experience, otherwise select 0.")
 
 # Prediction button
-
 if st.button('🎯 Predict Chances'):
     prediction = predict_admission(gre_score, toefl_score, university_rating, sop, lor, cgpa, research)
     
@@ -81,7 +57,3 @@ if st.button('🎯 Predict Chances'):
     else:
         st.error(f"Your predicted chance of admission is **{prediction:.2f}%**")
 
-
-# Separator and new project loading
-st.markdown("---")
-st.markdown("## 🌀 New project is loading... Stay tuned!")
