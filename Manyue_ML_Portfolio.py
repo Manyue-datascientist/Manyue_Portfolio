@@ -176,8 +176,8 @@ st.markdown("""
     <a href='https://www.linkedin.com/in/manyue-javvadi-datascientist/' target='_blank' style='text-decoration: none; color: inherit;'>
         <span>🔗 LinkedIn</span>
     </a>
-    <a href='https://manyue-datascientist-portfolio.streamlit.app/' target='_blank' style='text-decoration: none; color: inherit;'>
-        <span>📂 Portfolio</span>
+    <a href='https://manyuejavvadi.netlify.app/' target='_blank' style='text-decoration: none; color: inherit;'>
+        <span>📂 Website</span>
     </a>
     <span>📧 manyueinfo@gmail.com</span>
 </div>
