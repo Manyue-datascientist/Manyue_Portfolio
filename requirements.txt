@@ -15,3 +15,4 @@ sentencepiece
 huggingface-hub
 requests
 openai
+plotly

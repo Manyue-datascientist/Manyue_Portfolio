@@ -28,7 +28,11 @@
         "key_decision": "Transitioned from Java development at Cognizant to pursue ML/AI dream in Canada",
         "motivation": "Combining technical expertise with innovation and commerce skills in ML/AI field",
         "current_focus": "Building practical ML solutions while advancing education in Canada"
-      }
+      },
+      "photo_url": "https://example.com/photo.jpg",
+      "bio": "Data Scientist with a passion for leveraging AI/ML to solve real-world problems. Experienced in developing innovative solutions in various domains.",
+      "email": "manyueinfo@gmail.com",
+      "github": "https://github.com/manyue-datascientist"
     },
     "education": {
       "postgraduate": [
@@ -196,7 +200,9 @@
               "technical_focus": "Custom implementation of linear regression without using sklearn",
               "skills_developed": ["Statistical Analysis", "Algorithm Implementation", "Feature Engineering"],
               "accuracy": "81% on test data",
-              "status": "Completed"
+              "status": "Completed",
+              "github_repo": "https://github.com/manyue-datascientist/university-admission-predictor",
+              "demo_link": "https://university-admission-predictor-demo.com"
             },
             {
               "name": "LoanTap Credit Assessment",
@@ -204,7 +210,9 @@
               "description": "Custom-built logistic regression model for credit worthiness prediction",
               "technical_focus": "Implementation of logistic regression from scratch",
               "skills_developed": ["Credit Risk Modeling", "Binary Classification", "Model Evaluation"],
-              "status": "Completed"
+              "status": "Completed",
+              "github_repo": "https://github.com/manyue-datascientist/loantap-credit-assessment",
+              "demo_link": "https://loantap-credit-assessment-demo.com"
             },
             {
               "name": "OLA Driver Retention Analysis",
@@ -212,7 +220,9 @@
               "description": "Predictive modeling for driver churn using various ensemble techniques",
               "technical_focus": "Implementation of multiple base models and ensemble methods",
               "skills_developed": ["Ensemble Methods", "Feature Selection", "Model Comparison"],
-              "status": "Completed"
+              "status": "Completed",
+              "github_repo": "https://github.com/manyue-datascientist/ola-driver-retention-analysis",
+              "demo_link": "https://ola-driver-retention-analysis-demo.com"
             },
             {
               "name": "AdEase View Prediction",
@@ -220,7 +230,9 @@
               "description": "Forecasting Wikipedia page views for optimal ad placement",
               "technical_focus": "Implementation of time series models and forecasting techniques",
               "skills_developed": ["Time Series Analysis", "Forecasting", "Data Preprocessing"],
-              "status": "Completed"
+              "status": "Completed",
+              "github_repo": "https://github.com/manyue-datascientist/adease-view-prediction",
+              "demo_link": "https://adease-view-prediction-demo.com"
             }
           ]
         },

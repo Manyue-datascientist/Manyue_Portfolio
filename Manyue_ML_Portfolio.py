@@ -1,4 +1,7 @@
 import streamlit as st
+import json
+import pandas as pd
+import plotly.express as px
 
 # Page config must be the first Streamlit command
 st.set_page_config(
@@ -57,8 +60,16 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+# Load knowledge base data
+try:
+    with open('data/knowledge_base.json', 'r', encoding='utf-8') as f:
+        knowledge_base = json.load(f)
+except FileNotFoundError:
+    st.error("Knowledge base file not found.")
+    st.stop()
+
 # Main title and introduction
-st.title("Welcome to Manyue's Portfolio!🚀")
+st.title(f"Welcome to {knowledge_base['personal_details']['full_name']}'s Portfolio!🚀")
 
 # Video placeholder (for future)
 st.markdown("### 🎥 Introduction Video Coming Soon!")
@@ -66,14 +77,8 @@ st.write("Stay tuned for a personal introduction to my journey and projects!")
 st.markdown("---")
 
 # About me section
-# st.markdown("### 👋 About Me")
-#st.write("""
-#This is a space where I showcase the projects that have shaped my journey in Data Science and Machine Learning. 
-#Each project represents my dedication to mastering algorithms by solving real-world problems.
-
-#My passion lies in leveraging AI/ML to solve real-world challenges in sectors like retail, hospitality, and beyond.
-#""")#
-
+st.markdown("### 👋 About Me")
+st.write(knowledge_base['personal_details']['professional_summary'])
 
 # Featured Projects section
 st.markdown("### ⭐ Featured Projects")
@@ -154,6 +159,22 @@ with col2:
 
 st.markdown("---")
 
+# Skills Visualization
+st.markdown("### 🛠️ Skills Visualization")
+skills = knowledge_base['skills']['technical_skills']
+skills_data = {
+    "Skill": [],
+    "Category": []
+}
+for category, subskills in skills.items():
+    for subcategory, skill_list in subskills.items():
+        for skill in skill_list:
+            skills_data["Skill"].append(skill)
+            skills_data["Category"].append(f"{category} - {subcategory}")
+
+skills_df = pd.DataFrame(skills_data)
+fig = px.bar(skills_df, x="Skill", y="Category", color="Category", title="Skills Visualization")
+st.plotly_chart(fig)
 
 # More projects coming soon
 st.markdown("### 🚀 Coming Soon")
@@ -164,6 +185,7 @@ I'm currently working on exciting projects in:
 - MLOps and Model Deployment
 """)
 st.markdown("---")
+
 # Connect section
 st.markdown("### 🤝 Let's Connect!")
 st.write("""
@@ -171,14 +193,14 @@ If you're a recruiter or a collaborator, I'd love to discuss how we can work tog
 """)
 
 # Social links with icons
-st.markdown("""
+st.markdown(f"""
 <div style='display: flex; justify-content: space-around; margin: 2rem 0;'>
-    <a href='https://www.linkedin.com/in/manyue-javvadi-datascientist/' target='_blank' style='text-decoration: none; color: inherit;'>
+    <a href='{knowledge_base['personal_details']['online_presence']['linkedin']}' target='_blank' style='text-decoration: none; color: inherit;'>
         <span>🔗 LinkedIn</span>
     </a>
-    <a href='https://manyuejavvadi.netlify.app/' target='_blank' style='text-decoration: none; color: inherit;'>
+    <a href='{knowledge_base['personal_details']['online_presence']['personal_website']}' target='_blank' style='text-decoration: none; color: inherit;'>
         <span>📂 Website</span>
     </a>
-    <span>📧 manyueinfo@gmail.com</span>
+    <span>📧 {knowledge_base['personal_details']['email']}</span>
 </div>
 """, unsafe_allow_html=True)

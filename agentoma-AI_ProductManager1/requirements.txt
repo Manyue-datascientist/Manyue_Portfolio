@@ -1,0 +1,17 @@
+﻿streamlit
+joblib
+pandas
+numpy
+matplotlib
+scikit-learn
+seaborn
+torch
+Transformers
+accelerate
+safetensors
+protobuf
+scipy
+sentencepiece
+huggingface-hub
+requests
+openai
